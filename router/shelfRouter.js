@@ -13,9 +13,28 @@ router.get('/', function(req,res){
     else{
       console.log('shelfResults:',shelfResults);
       res.send(shelfResults);
-      res.sendStatus(200);
     }//end else
   });//end find
 });//end get
+
+router.post('/', function(req,res){
+  var sentData = req.body;
+  console.log('in post',sentData);
+  var newItem = new Shelf({
+    placer: sentData.placer,
+    description: sentData.decription,
+    image: sentData.image
+  });
+  newItem.save(function(err){
+    if (err){
+      console.log('error:',err);
+      res.sendStatus(500);
+    }//end if
+    else{
+      console.log('success',newItem);
+      res.send(newItem);
+    }//end else
+  });//end save
+});//end post
 
 module.exports = router;
