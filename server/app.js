@@ -7,12 +7,12 @@ var port = process.env.PORT || 9001;
 var mongoose = require ('mongoose');
 
 app.use(bodyParser.json());
-//
-// var shelfRouter = require('../router/shelfRouter');
-//
-// app.use('/shelf', shelfRouter)
-//
-// mongoose.connect("mongodb://localhost:27017/PiShelf");
+
+var shelfRouter = require('../router/shelfRouter');
+
+app.use('/shelf', shelfRouter)
+
+mongoose.connect("mongodb://localhost:27017/PiShelf");
 
 //spin up server
 app.listen(port, function(){
