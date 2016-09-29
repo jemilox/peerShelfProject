@@ -97,6 +97,14 @@ myApp.controller( 'shelf', [ '$scope', '$http', function( $scope, $http ) {
 
       console.log( 'user is logged in. preparing to delete this item:', this );
 
+      $http({
+        url: '/shelf',
+        method: 'PUT',
+        data: { id : this.item._id }
+      }).then( function (result) {
+        console.log( 'result:', result );
+        $scope.getItems();
+      });
 
 
     }

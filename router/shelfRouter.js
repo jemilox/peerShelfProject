@@ -37,4 +37,11 @@ router.post('/', function(req,res){
   });//end save
 });//end post
 
+router.put('/', function (req, res) {
+  console.log( 'put', req.body.id );
+  Shelf.remove({ _id: req.body.id}, function(err, result){
+    res.send( result );
+  });
+})
+
 module.exports = router;

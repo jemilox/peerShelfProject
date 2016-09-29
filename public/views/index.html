@@ -7,6 +7,7 @@
     <script src="../vendors/angular.min.js"></script>
     <script src="../vendors/angular-route.min.js"></script>
     <script src="../scripts/client.js"></script>
+    <link href="style.css" rel="stylesheet" />
   </head>
   <body ng-app="myApp">
     <main ng-controller="shelf">
@@ -18,7 +19,7 @@
       </div>
       <div ng-hide="userIsLoggedIn"><button ng-click="login()">Login</button></div>
       <ul>
-        <li ng-repeat="item in items">{{item.description}} - {{item.placer}}<span ng-show="userIsLoggedIn"> - <button ng-click="delete()">Delete</button></span><br/><img src="{{item.image}}"></li>
+        <li ng-repeat="item in items">{{item.description}} - {{item.placer}}<span ng-show="userIsLoggedIn"> - <button ng-click="delete()">Delete</button></span><br/><img ng-src="{{item.image}}"></li>
         </ul>
     </main>
   </body>
